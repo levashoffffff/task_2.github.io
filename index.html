@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK_2</title>
+</head>
+<body>
+    <h1 style="text-align: center;">B. Иерархия цитадели</h1>
+
+    <script>
+
+        document.write("ПРИМЕР 1" + "<br>");
+        document.write("n = 3" + "<br>");
+        document.write("m = 4" + "<br>");
+        document.write("Иерархия = [4, 1, 2, 3, 6, 5, 7]" + "<br>");
+
+        function task_2_1(n, m, hierarchy) {
+            let mortyOrder = [];
+            
+            for (let i = n; i < n + m; i++) {
+                mortyOrder.push(hierarchy[i]);
+            }
+
+            document.write("Исходный массив Morty" + "<br>");
+            for(let i = 0; i < mortyOrder.length; i++) {
+                document.write(mortyOrder[i] + "<br>");
+            }
+            
+            mortyOrder.sort((a, b) => a - b);
+
+            for (let i = n; i < n + m; i++) {
+                if (hierarchy[i] !== mortyOrder[i - n]) {
+                    return "Нет" + "<br>";
+                }
+            }
+            
+            return "Да" + "<br>";
+        }
+
+        // Пример использования
+        let n_1 = 3; //Количество РИККИ
+        let m_1 = 4; //Количество МОРТИ
+        const hierarchy_1 = [4, 1, 2, 3, 6, 5, 7]; //Нет
+
+        document.write("<br>" + task_2_1(n_1, m_1, hierarchy_1));
+
+        //---------------ПРИМЕР 2--------------------
+
+        document.write("<br>" + "ПРИМЕР 2" + "<br>");
+        document.write("n = 3" + "<br>");
+        document.write("m = 4" + "<br>");
+        document.write("Иерархия = [1, 2, 3, 4, 5, 6, 7]" + "<br>");
+
+        function task_2_2(n, m, hierarchy) {
+            let mortyOrder = [];
+            
+            for (let i = n; i < n + m; i++) {
+                mortyOrder.push(hierarchy[i]);
+            }
+
+            document.write("Исходный массив Morty" + "<br>");
+            for(let i = 0; i < mortyOrder.length; i++) {
+                document.write(mortyOrder[i] + "<br>");
+            }
+            
+            mortyOrder.sort((a, b) => a - b);
+
+            for (let i = n; i < n + m; i++) {
+                if (hierarchy[i] !== mortyOrder[i - n]) {
+                    return "Нет";
+                }
+            }
+            
+            return "Да";
+        }
+
+        let n_2 = 3; //Количество РИККИ
+        let m_2 = 4; //Количество МОРТИ
+        const hierarchy_2 = [1, 2, 3, 4, 5, 6, 7] //Да
+
+        document.write("<br>" + task_2_2(n_2, m_2, hierarchy_2));
+            
+    </script>
+</body>
+</html>
